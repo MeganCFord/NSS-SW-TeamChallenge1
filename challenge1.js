@@ -18,44 +18,58 @@ var createCardText = function () {
   card.innerHTML += 
 
     "<label>Text Color" +
+    //here is the text color picker.
       "<input type='color' name = 'textColor' class='textColor'>" +
     "</label>" +
+    //here is the background color picker.
     "<label>Background Color" +
       "<input type='color' class='backgroundColor'>" +
     "</label>" + 
+    //here is the delete button.
     "<input type='button' class='delete' value='Delete'>" +
+    //here is where the input text goes.
     "<h3 class=theText>" + inputText + "</h3>";
 
-  //select the most recent card (for creating a background behind all of it)
-   var allTheCards = document.getElementsByClassName("card");
-   var lastCard = allTheCards[allTheCards.length-1];
 
    //select the most recent background color picker
-   var backgroundReceiver = document.getElementsByClassName("backgroundColor");
-   var backgroundColor = backgroundReceiver[backgroundReceiver.length-1];
+  var backgroundReceiver = document.getElementsByClassName("backgroundColor");
+  var backgroundColor = backgroundReceiver[backgroundReceiver.length-1];
   
   //change background color
-   var assignBackground = function(event) {
+  var assignBackground = function(event) {
     var parentDiv = event.srcElement.parentElement.parentElement;
     parentDiv.style.backgroundColor = event.srcElement.value;
-    }
+  }
   //background color event listener
   backgroundColor.addEventListener("change", assignBackground);
 
 
-   //select the most recent text color picker
-   var textReceiver = document.getElementsByClassName("textColor");
-   var textColor = textReceiver[textReceiver.length-1];
+  //select the most recent text color picker
+  var textReceiver = document.getElementsByClassName("textColor");
+  var textColor = textReceiver[textReceiver.length-1];
 
   //Change text color
   var assignTextColor = function(event) {
     var parentDiv = event.srcElement.parentElement.parentElement;
-
-     parentDiv.getElementsByClassName("theText")[0].style.color= event.srcElement.value;
+    parentDiv.getElementsByClassName("theText")[0].style.color= event.srcElement.value;
   }
   //text color event listener
   textColor.addEventListener("change", assignTextColor);
-}
+
+  //delete button function to delete card.
+  var deleteCard = function(event) {
+    var cardDiv = event.srcElement.parentElement;
+    cardContainer.removeChild(cardDiv);
+  }
+  //select the most recent delete button
+  var deleteButtons = document.getElementsByClassName("delete");
+  var deleteButton = deleteButtons[deleteButtons.length-1];
+
+  //delete button event listener
+  deleteButton.addEventListener("click", deleteCard);
+}  
+  
+
 
 //card creation event listener
 createButton.addEventListener("click", createCardText);
