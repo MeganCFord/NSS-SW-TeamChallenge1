@@ -1,0 +1,16 @@
+*{
+  box-sizing: border-box;
+}
+
+.card {
+  display: inline-block;
+  border: 3px solid black;
+  width: 30%;
+  height: 200px;
+  margin: 8px;
+  padding: 5px;
+}
+
+.card label {
+  display: block;
+}
