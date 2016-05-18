@@ -23,12 +23,12 @@ NSS Front-End Milestone 1 (Static Web) Team Challenge 1:
 
 
 ``` 
-git clone __
+git clone https://github.com/MeganCFord/NSS-SW-TeamChallenge1.git
 cd 24-teamchallenge-1
 open index.html
 ```
 
-[Live Site On Github]()
+[Live Site On Github](http://megancford.github.io/NSS-SW-TeamChallenge1)
 
 
 ![screenshot](teamchallenge1-screenshot.jpg)
